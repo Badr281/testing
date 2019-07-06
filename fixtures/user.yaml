@@ -1,0 +1,6 @@
+App\Entity\User:
+    User_1:
+        email: '<email()>'
+        roles: ['role_user']
+        password: '<testpass(pass)>'
+        

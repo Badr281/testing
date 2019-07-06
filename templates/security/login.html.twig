@@ -1,0 +1,55 @@
+{% extends 'landing/base.html.twig' %}
+
+
+{% block title %}Log in!{% endblock %}
+
+{% block test4 %}
+<form method="post" class="mt-4">
+    {% if error %}
+        <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+    {% endif %}
+
+    <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+
+    <div class="md-form col-s12">
+        <input type="email" name="email" id="inputEmail" class="form-control validate" type="text">
+        <label for="inputEmail" class="active">Email</label>
+    </div>
+<br>
+
+    <div class="md-form col-s12">
+            <input type="password" name="password" id="inputPassword" class="form-control validate" >
+            <label for="inputPassword" class="active">Password</label>
+    </div>
+    <input type="hidden" name="_csrf_token"
+           value="{{ csrf_token('authenticate') }}">
+
+    {#
+        Uncomment this section and add a remember_me option below your firewall to activate remember me functionality.
+        See https://symfony.com/doc/current/security/remember_me.html
+
+        <div class="checkbox mb-3">
+            <label>
+                <input type="checkbox" name="_remember_me"> Remember me
+            </label>
+        </div>
+    #}
+        <br>
+<div class="row">
+        <button class="btn btn-deep-purple btn-lg form-control" type="submit">
+            Sign in
+        </button> 
+</div>
+
+<div class="row">
+        <a class="btn btn-danger btn-lg form-control" href="{{path('connect_google')}}"  type="button" >
+            <em class="fab fa-google-plus-square "></em>   <strong>With Gmail account</strong> 
+        </a>
+</div>
+
+</form>
+{% endblock %}
+{% block total %}{% endblock %}
+
+
+
